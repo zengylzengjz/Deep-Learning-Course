@@ -1,0 +1,19 @@
+git checkout -b '分支名'     //无该分支则创建   然后切换到该分支
+
+//完成开发后    在 '分支名' 上
+git add .
+git commit -m '提交信息'
+git chekcout develop
+git pull
+if(是最新的){
+	git merge '分支名'
+	git push
+	git branch -d '分支名'        //删除这个分支
+}else{
+	git checkout '分支名'
+	git rebase develop
+	git checkout develop
+	git merge '分支名'
+	git push
+	git branch -d '分支名'
+}
